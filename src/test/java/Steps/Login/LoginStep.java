@@ -14,10 +14,11 @@ public class LoginStep extends ScenarioSteps {
         loginPage.InputUsernameAndPassword(username);
     }
 
-    public void CanSeeSentinelDashboardAndLoggedInAs(String username)throws InterruptedException{
-        Thread.sleep(6000);
+    public void CanSeeSentinelDashboardAndLoggedInAs()throws InterruptedException{
         loginPage.CanSeeSentinelDashboard();
-        Thread.sleep(6000);
-        loginPage.LoggedInAs(username);
+    }
+
+    public void CanSeeLoginForm()throws InterruptedException{
+        loginPage.CanSeeLoginForm();
     }
 }
