@@ -34,7 +34,7 @@ public class LoginPage extends PageObject {
     public void InputUsernameAndPassword(String username){
         USERNAME_FIELD.click();
         USERNAME_FIELD.sendKeys(username);
-        PASSWORD_FIELD.sendKeys(database.password);
+        PASSWORD_FIELD.sendKeys(database.getPassword(username));
         LOGIN_BUTTON.click();
     }
 
