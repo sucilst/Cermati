@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
         plugin = {"html:target/cucumber","json:target/cucumber/report.json","pretty"},
         features = {
                 "src/test/resources/features/Biller/PricingConfig/PricingConfig.feature"
-        }
-//        tags = {"@TestCaseKey=BPA-T1472"}
+        },
+        tags = {"@TestCaseKey=BPA-T1476"}
 )
 public class Release05062020TestSuite {}

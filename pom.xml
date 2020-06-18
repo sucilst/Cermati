@@ -89,7 +89,6 @@
                     <argLine>-Xmx512m</argLine>
                     <parallel>classes</parallel>
                     <threadCount>2</threadCount>
-                    <perCoreThreadCount>false</perCoreThreadCount>
                 </configuration>
                 <executions>
                     <execution>

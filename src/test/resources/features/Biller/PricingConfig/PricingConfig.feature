@@ -17,3 +17,18 @@ Feature: Pricing Config
     When user click Biller
     And user click Price Mapping
     Then user can see list of biller pricing
+
+  @TestCaseKey=BPA-T1476
+  Scenario Outline: Filter pricing config
+    Given user has logged in before deal with pricing config
+    When user click Biller
+    And user click Price Mapping
+    When user filter <filter_type> with value <val> of the pricing config
+    Then the pricing config shows the correct data based on filter <filter_type> with value <val>
+
+    Examples:
+      |filter_type |val               |
+      |biller      |Indosat Saldo Mobo|
+#      |product     |Tri Rp 100.000    |
+#      |pricing_type|Price             |
+#      |include_ppn |With PPN          |

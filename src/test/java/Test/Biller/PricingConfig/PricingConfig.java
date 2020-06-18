@@ -30,4 +30,14 @@ public class PricingConfig {
         Thread.sleep(5000);
         pricingConfigStep.see_list_of_biller_pricing();
     }
+
+    @When("user filter ([^\"]*) with value ([^\"]*) of the pricing config")
+    public void user_filter_biller_with_value_Indosat_Saldo_Mobo_of_the_pricing_config(String filter, String val) {
+
+    }
+
+    @Then("the pricing config shows the correct data based on filter ([^\"]*) with value ([^\"]*)")
+    public void the_pricing_config_shows_the_correct_data_based_on_filter_biller_with_value_Indosat_Saldo_Mobo(String filter, String val) {
+
+    }
 }
