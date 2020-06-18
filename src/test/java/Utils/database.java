@@ -1,6 +1,23 @@
 package Utils;
 
 public interface database {
-    String username_febri = "febri";
-    String password = "alterra123";
+
+     static String getPassword(String username) {
+        String password = "";
+
+        switch (username) {
+            case "kraken":
+                password = "kraken";
+                break;
+
+            case "febri":
+                password = "alterra123";
+                break;
+            default:
+                System.out.println("Username invalid");
+
+        }
+
+        return password;
+    }
 }

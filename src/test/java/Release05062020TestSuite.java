@@ -6,13 +6,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"html:target/cucumber","json:target/cucumber/report.json","pretty"},
         features = {
-                "src/test/resources/features/SmartBiller/TOPConfig/TOPPartnerLog.feature",
-                "src/test/resources/features/SmartBiller/ProductPartnerConfig/HistoryProductPartnerConfig.feature:59",
-                "src/test/resources/features/SmartBiller/TOPConfig/TOPBillerLog.feature",
-                "src/test/resources/features/SmartBiller/ProductBillerConfig/ProductBiller.feature",
-                "src/test/resources/features/PartnerPackage/IndomaretConfig/ImproveHeader.feature",
-                "src/test/resources/features/CacaBot/GroupConfigApi.feature",
-                "src/test/resources/features/CacaBot/AppUserConfig.feature"
+                "src/test/resources/features/Biller/PricingConfig/PricingConfig.feature"
         }
+//        tags = {"@TestCaseKey=BPA-T1472"}
 )
 public class Release05062020TestSuite {}
