@@ -76,4 +76,18 @@ public class PricingConfig {
         Thread.sleep(4000);
         pricingConfigStep.pricing_config_addition_is_failed();
     }
+
+    @When("user edit a pricing config at ([^\"]*) with ([^\"]*), ([^\"]*), ([^\"]*), ([^\"]*), ([^\"]*)")
+    public void user_edit_a_pricing_config_with_A_price_false(String whatEdit,String biller_product_code,String pricing_type, String biller_fee, String collection_fee, String incl_ppn)
+    throws InterruptedException{
+        Thread.sleep(3000);
+        pricingConfigStep.click_UPDATE();
+        Thread.sleep(6000);
+        pricingConfigStep.edit_a_pricing_config(whatEdit,biller_product_code,pricing_type,biller_fee,collection_fee,incl_ppn);
+    }
+
+    @Then("the pricing config for successfully edited")
+    public void the_pricing_config_for_successfully_edited() {
+
+    }
 }

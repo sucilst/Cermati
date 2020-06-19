@@ -27,7 +27,7 @@ public class PricingConfigPage extends PageObject {
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/main/div/div/div[1]/div/div/div[1]/div[1]/div[2]/div/div/input")
     WebElement FORM_PRODUCT;
 
-    @FindBy(xpath = "//*[@id=\"app\"]/div/div/main/div/div/div[1]/div/div/div[1]/div[1]/div[2]/div/ul/li[4]/a")
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/main/div/div/div[1]/div/div/div[1]/div[1]/div[2]/div/ul/li[1]/a")
     WebElement INPUT_PRODUCT;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/main/div/div/div[1]/div/div/div[1]/div[1]/div[3]/div/div/input")
@@ -63,6 +63,9 @@ public class PricingConfigPage extends PageObject {
     @FindBy(css = "div.mb-1:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)")
     WebElement SELECT_PRICETYPE;
 
+    @FindBy(css = "div.mb-1:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > input:nth-child(2)")
+    WebElement SELECT_PRICETYPE_EDIT;
+
     @FindBy(css = "#__BVID__282")
     WebElement BILLERPRODUCT_CODE;
 
@@ -78,11 +81,27 @@ public class PricingConfigPage extends PageObject {
     @FindBy(css = "div.custom-control:nth-child(2) > label:nth-child(2) > span:nth-child(1)")
     WebElement WITHOUT_PPN;
 
+    @FindBy(css = "#__BVID__203")
+    WebElement COLLECTION_FEE_EDIT;
+
+    @FindBy(css = "div.custom-control:nth-child(1) > label:nth-child(2) > span:nth-child(1)")
+    WebElement WITH_PPN_EDIT;
+
+    @FindBy(css = "div.custom-control:nth-child(2) > label:nth-child(2) > span:nth-child(1)")
+    WebElement WITHOUT_PPN_EDIT;
+
+    @FindBy(css = "#__BVID__271___BV_modal_footer_ > button:nth-child(1)")
+    WebElement SAVE_BUTTON_EDIT;
+
     @FindBy(css = "#__BVID__271___BV_modal_footer_ > button:nth-child(1)")
     WebElement SAVE_BUTTON;
 
     @FindBy(xpath = "/html/body/div[2]/div")
     WebElement DUPLICATE_ENTRY;
+
+//    @FindBy(xpath = "//*[@id=\"__BVID__189\"]/tbody/tr/td[12]/div/button[1]")
+    @FindBy(css = "button.btn-sm:nth-child(1)")
+    WebElement EDIT_BUTTON;
 
     public void clickBiller()  {
         BILLER_MENU.click();
@@ -105,7 +124,7 @@ public class PricingConfigPage extends PageObject {
                     break;
 
                 case "product":
-                    FORM_PRODUCT.click();
+                    FORM_PRODUCT.sendKeys(val);
                     INPUT_PRODUCT.click();
                     SEARCH_BUTTON.click();
                     break;
@@ -119,6 +138,14 @@ public class PricingConfigPage extends PageObject {
                 case "include_ppn":
                     FORM_PPN.sendKeys(val);
                     INPUT_PPN.click();
+                    SEARCH_BUTTON.click();
+                    break;
+
+                case "biller and product":
+                    FORM_BILLER.sendKeys(val.substring(0,12));
+                    INPUT_BILLER.click();
+                    FORM_PRODUCT.sendKeys(val.substring(13));
+                    INPUT_PRODUCT.click();
                     SEARCH_BUTTON.click();
                     break;
 
@@ -140,7 +167,6 @@ public class PricingConfigPage extends PageObject {
         SELECT_BILLER.sendKeys(biller);
         SELECT_BILLER.sendKeys(Keys.ENTER);
 
-//        SELECT_PRODUCT.click();
         SELECT_PRODUCT.sendKeys(product);
         SELECT_PRODUCT.sendKeys(Keys.ENTER);
 
@@ -171,5 +197,47 @@ public class PricingConfigPage extends PageObject {
 
     public void pricing_config_addition_is_failed() {
         DUPLICATE_ENTRY.isDisplayed();
+    }
+
+    public void click_UPDATE() {
+        EDIT_BUTTON.click();
+    }
+
+    public void edit_a_pricing_config(String whatEdit,String biller_product_code,String pricing_type, String biller_fee, String collection_fee, String incl_ppn) {
+        switch (whatEdit) {
+            case "biller_product_code":
+                BILLERPRODUCT_CODE.click();
+                BILLERPRODUCT_CODE.clear();
+                BILLERPRODUCT_CODE.sendKeys(biller_product_code);
+                break;
+
+            case "pricing_type":
+                SELECT_PRICETYPE_EDIT.click();
+                SELECT_PRICETYPE_EDIT.sendKeys(pricing_type);
+                SELECT_PRICETYPE_EDIT.sendKeys(Keys.ENTER);
+                break;
+
+            case "biller_fee":
+                BILLER_FEE.click();
+                BILLER_FEE.clear();
+                BILLER_FEE.sendKeys(biller_fee);
+                break;
+
+            case "collection_fee":
+                COLLECTION_FEE.click();
+                COLLECTION_FEE.clear();
+                COLLECTION_FEE.sendKeys(collection_fee);
+                break;
+
+            case "incl_ppn":
+                if (incl_ppn.equals("true")) {
+                    WITH_PPN_EDIT.click();
+                } else {WITHOUT_PPN_EDIT.click();}
+                break;
+
+            default:
+                System.out.println("Username invalid");
+
+        }
     }
 }
