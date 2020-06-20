@@ -90,4 +90,15 @@ public class PricingConfig {
     public void the_pricing_config_for_successfully_edited() {
 
     }
+
+    @When("user delete a pricing config")
+    public void user_delete_a_pricing_config() throws InterruptedException {
+        Thread.sleep(4000);
+        pricingConfigStep.delete_a_pricing_config();
+    }
+
+    @Then("the pricing config successfully deleted")
+    public void the_pricing_config_successfully_deleted() {
+
+    }
 }

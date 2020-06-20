@@ -49,4 +49,8 @@ public class PricingConfigStep extends ScenarioSteps {
     public void edit_a_pricing_config(String whatEdit,String biller_product_code,String pricing_type, String biller_fee, String collection_fee, String incl_ppn) {
         pricingConfigPage.edit_a_pricing_config(whatEdit,biller_product_code,pricing_type,biller_fee,collection_fee,incl_ppn);
     }
+
+    public void delete_a_pricing_config() throws InterruptedException {
+        pricingConfigPage.delete_a_pricing_config();
+    }
 }

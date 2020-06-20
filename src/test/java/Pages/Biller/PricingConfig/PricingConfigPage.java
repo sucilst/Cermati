@@ -4,9 +4,6 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-
-import java.sql.Driver;
 
 public class PricingConfigPage extends PageObject {
     @FindBy(id = "qe_biller")
@@ -81,9 +78,6 @@ public class PricingConfigPage extends PageObject {
     @FindBy(css = "div.custom-control:nth-child(2) > label:nth-child(2) > span:nth-child(1)")
     WebElement WITHOUT_PPN;
 
-    @FindBy(css = "#__BVID__203")
-    WebElement COLLECTION_FEE_EDIT;
-
     @FindBy(css = "div.custom-control:nth-child(1) > label:nth-child(2) > span:nth-child(1)")
     WebElement WITH_PPN_EDIT;
 
@@ -99,9 +93,14 @@ public class PricingConfigPage extends PageObject {
     @FindBy(xpath = "/html/body/div[2]/div")
     WebElement DUPLICATE_ENTRY;
 
-//    @FindBy(xpath = "//*[@id=\"__BVID__189\"]/tbody/tr/td[12]/div/button[1]")
     @FindBy(css = "button.btn-sm:nth-child(1)")
     WebElement EDIT_BUTTON;
+
+    @FindBy(css = "button.btn-sm:nth-child(2)")
+    WebElement DEL_BUTTON;
+
+    @FindBy(css = ".btn-danger")
+    WebElement YES_DEL;
 
     public void clickBiller()  {
         BILLER_MENU.click();
@@ -239,5 +238,11 @@ public class PricingConfigPage extends PageObject {
                 System.out.println("Username invalid");
 
         }
+    }
+
+    public void delete_a_pricing_config() throws InterruptedException {
+        DEL_BUTTON.click();
+        Thread.sleep(3000);
+        YES_DEL.click();
     }
 }
