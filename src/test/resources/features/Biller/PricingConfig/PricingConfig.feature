@@ -75,10 +75,10 @@ Feature: Pricing Config
 
     Examples:
       |filter_type       |val                     |biller_product_code|pricing_type|biller_fee|collection_fee|incl_ppn|whatEdit           |
-      |biller and product|Dummy Biller&Tri Rp 100 |A72                |Price       |1000      |2000          |false   |biller_product_code|
-      |biller and product|Dummy Biller&Tri Rp 100 |A71                |Admin       |1000      |2000          |false   |pricing_type       |
-      |biller and product|Dummy Biller&Tri Rp 100 |A71                |Price       |1500      |2000          |false   |biller_fee         |
-      |biller and product|Dummy Biller&Tri Rp 100 |A71                |Price       |1000      |2500          |false   |collection_fee     |
+      |biller and product|Dummy Biller&Tri Rp 100 |A73                |Price       |1000      |2000          |false   |biller_product_code|
+      |biller and product|Dummy Biller&Tri Rp 100 |A71                |Percentage  |1000      |2000          |false   |pricing_type       |
+      |biller and product|Dummy Biller&Tri Rp 100 |A71                |Price       |1550      |2000          |false   |biller_fee         |
+      |biller and product|Dummy Biller&Tri Rp 100 |A71                |Price       |1000      |2550          |false   |collection_fee     |
       |biller and product|Dummy Biller&Tri Rp 100 |A71                |Price       |1000      |2000          |true    |incl_ppn           |
 
   @TestCaseKey=BPA-T1477
