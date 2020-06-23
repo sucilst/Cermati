@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"html:target/cucumber","json:target/cucumber/report.json","pretty"},
         features = {
-                "src/test/resources/features/Biller/PricingConfig/PricingConfig.feature"
-        },
-        tags = {"@TestCaseKey=BPA-T1476"}
+//                "src/test/resources/features/Biller/PricingConfig/PricingConfig.feature"
+        }
+//        tags = {"@TestCaseKey=BPA-T1475"}
 )
 public class Release05062020TestSuite {}
