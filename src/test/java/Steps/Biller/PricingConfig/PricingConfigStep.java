@@ -38,6 +38,10 @@ public class PricingConfigStep extends ScenarioSteps {
         pricingConfigPage.clik_Ok();
     }
 
+    public void the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(String biller, String product, String finalState) {
+        pricingConfigPage.the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(biller, product, finalState);
+    }
+
     public void pricing_config_addition_is_failed() {
         pricingConfigPage.pricing_config_addition_is_failed();
     }
@@ -52,5 +56,17 @@ public class PricingConfigStep extends ScenarioSteps {
 
     public void delete_a_pricing_config() throws InterruptedException {
         pricingConfigPage.delete_a_pricing_config();
+    }
+
+    public void click_Price_Mapping_Approval() {
+        pricingConfigPage.click_Price_Mapping_Approval();
+    }
+
+    public void user_click_Review() {
+        pricingConfigPage.user_click_Review();
+    }
+
+    public void user_do_the_change(String action) {
+        pricingConfigPage.user_do_the_change(action);
     }
 }

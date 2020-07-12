@@ -12,6 +12,9 @@ public class PricingConfigPage extends PageObject {
     @FindBy(id = "qe_price-mapping")
     WebElement PRICE_MAPPING;
 
+    @FindBy(id = "qe_price-mapping-approval")
+    WebElement PRICE_MAPPING_APPROVAL;
+
     @FindBy(className = "card")
     WebElement LIST_BILLER_PRICE;
 
@@ -63,13 +66,13 @@ public class PricingConfigPage extends PageObject {
     @FindBy(css = "div.mb-1:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > input:nth-child(2)")
     WebElement SELECT_PRICETYPE_EDIT;
 
-    @FindBy(css = "#__BVID__282")
+    @FindBy(css = "#__BVID__308")
     WebElement BILLERPRODUCT_CODE;
 
     @FindBy(css = "#__BVID__283")
     WebElement COLLECTION_FEE;
 
-    @FindBy(css = "#__BVID__284")
+    @FindBy(css = "#__BVID__309")
     WebElement BILLER_FEE;
 
     @FindBy(css = "div.custom-control:nth-child(1) > label:nth-child(2) > span:nth-child(1)")
@@ -84,10 +87,7 @@ public class PricingConfigPage extends PageObject {
     @FindBy(css = "div.custom-control:nth-child(2) > label:nth-child(2) > span:nth-child(1)")
     WebElement WITHOUT_PPN_EDIT;
 
-    @FindBy(css = "#__BVID__271___BV_modal_footer_ > button:nth-child(1)")
-    WebElement SAVE_BUTTON_EDIT;
-
-    @FindBy(css = "#__BVID__271___BV_modal_footer_ > button:nth-child(1)")
+    @FindBy(css = "#__BVID__297___BV_modal_footer_ > button:nth-child(1)")
     WebElement SAVE_BUTTON;
 
     @FindBy(xpath = "/html/body/div[2]/div")
@@ -101,6 +101,15 @@ public class PricingConfigPage extends PageObject {
 
     @FindBy(css = ".btn-danger")
     WebElement YES_DEL;
+
+    @FindBy(css = "#__BVID__691 > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(9) > button:nth-child(1)")
+    WebElement REVIEW;
+
+    @FindBy(css = "button.btn:nth-child(2)")
+    WebElement ACCEPT;
+
+    @FindBy(css = ".btn-secondary")
+    WebElement REJECT;
 
     public void clickBiller()  {
         BILLER_MENU.click();
@@ -176,9 +185,6 @@ public class PricingConfigPage extends PageObject {
         BILLERPRODUCT_CODE.click();
         BILLERPRODUCT_CODE.sendKeys(biller_product_code);
 
-        COLLECTION_FEE.click();
-        COLLECTION_FEE.sendKeys(collection_fee);
-
         BILLER_FEE.click();
         BILLER_FEE.sendKeys(biller_fee);
         if (incl_ppn.equals("true")) {
@@ -244,5 +250,26 @@ public class PricingConfigPage extends PageObject {
         DEL_BUTTON.click();
         Thread.sleep(3000);
         YES_DEL.click();
+    }
+
+    public void click_Price_Mapping_Approval() {
+        PRICE_MAPPING_APPROVAL.click();
+    }
+
+    public void user_click_Review() {
+        REVIEW.click();
+    }
+
+    public void user_do_the_change(String action) {
+        if (action.equals("accept")) {
+            ACCEPT.click();
+        }
+        else {
+            REJECT.click();
+        }
+    }
+
+    public void the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(String biller, String product, String finalState) {
+        PRICE_MAPPING.click();
     }
 }

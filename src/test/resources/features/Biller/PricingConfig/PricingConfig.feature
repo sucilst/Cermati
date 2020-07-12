@@ -34,7 +34,7 @@ Feature: Pricing Config
       |include_ppn |With PPN          |
 
   @TestCaseKey=BPA-T1473
-  Scenario Outline: Add pricing config and get list of it afterward
+  Scenario Outline: Add pricing config, do approval, and get list of it afterward
     Given user has logged in before deal with pricing config
     When user click Biller
     And user click Price Mapping
@@ -42,11 +42,15 @@ Feature: Pricing Config
     And user fill a pricing config with <biller>, <product>, <biller_product_code>, <pricing_type>, <biller_fee>, <collection_fee>, <incl_ppn>
     And user click save
     And clik Ok
-    Then the pricing config for <biller>, <product> successfully added
+    And user click Price Mapping Approval
+    And user click Review
+    And user do <action> the change
+    Then the pricing config for <biller>, <product> <finalState> added
 
     Examples:
-      |biller       |product       |biller_product_code|pricing_type|biller_fee|collection_fee|incl_ppn|
-      |Dummy Biller |Tri Rp 100    |A71                |Price       |1000      |2000          |false   |
+      |biller       |product       |biller_product_code|pricing_type|biller_fee|collection_fee|incl_ppn|action|finalState|
+      |Dummy Biller |TRi 10        |A71                |Price       |1000      |2000          |false   |reject|failedly  |
+      |Dummy Biller |TRi 10        |A71                |Price       |1000      |2000          |false   |accept|successfully|
 
   @TestCaseKey=BPA-T1474
   Scenario Outline: Add pricing config fail (Duplicate entry)
@@ -63,7 +67,7 @@ Feature: Pricing Config
       |Dummy Biller |Tri Rp 100    |A71                |Price       |1000      |2000          |false   |
 
   @TestCaseKey=BPA-T1475
-  Scenario Outline: Edit pricing config and get list of it afterward
+  Scenario Outline: Edit pricing config, do approval, and get list of it afterward
     Given user has logged in before deal with pricing config
     When user click Biller
     And user click Price Mapping
@@ -82,7 +86,7 @@ Feature: Pricing Config
       |biller and product|Dummy Biller&Tri Rp 100 |A71                |Price       |1000      |2000          |true    |incl_ppn           |
 
   @TestCaseKey=BPA-T1477
-  Scenario Outline: Delete pricing config and get list of it afterward
+  Scenario Outline: Delete pricing config, do approval, and get list of it afterward
     Given user has logged in before deal with pricing config
     When user click Biller
     And user click Price Mapping
