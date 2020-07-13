@@ -102,7 +102,7 @@ public class PricingConfigPage extends PageObject {
     @FindBy(css = ".btn-danger")
     WebElement YES_DEL;
 
-    @FindBy(css = "#__BVID__691 > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(9) > button:nth-child(1)")
+    @FindBy(css = "button.btn-primary:nth-child(1)")
     WebElement REVIEW;
 
     @FindBy(css = "button.btn:nth-child(2)")
@@ -235,6 +235,21 @@ public class PricingConfigPage extends PageObject {
                 break;
 
             case "incl_ppn":
+                if (incl_ppn.equals("true")) {
+                    WITH_PPN_EDIT.click();
+                } else {WITHOUT_PPN_EDIT.click();}
+                break;
+
+            case "all":
+                BILLERPRODUCT_CODE.click();
+                BILLERPRODUCT_CODE.clear();
+                BILLERPRODUCT_CODE.sendKeys(biller_product_code);
+                SELECT_PRICETYPE_EDIT.click();
+                SELECT_PRICETYPE_EDIT.sendKeys(pricing_type);
+                SELECT_PRICETYPE_EDIT.sendKeys(Keys.ENTER);
+                BILLER_FEE.click();
+                BILLER_FEE.clear();
+                BILLER_FEE.sendKeys(biller_fee);
                 if (incl_ppn.equals("true")) {
                     WITH_PPN_EDIT.click();
                 } else {WITHOUT_PPN_EDIT.click();}

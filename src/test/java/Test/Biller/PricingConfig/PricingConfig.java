@@ -70,6 +70,9 @@ public class PricingConfig {
     public void the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(String biller, String product, String finalState) throws InterruptedException {
         Thread.sleep(2000);
         pricingConfigStep.the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(biller, product, finalState);
+        Thread.sleep(3000);
+        pricingConfigStep.user_filter("biller and product","Dummy Biller&TRi 10.0");
+        Thread.sleep(5000);
     }
 
     @Then("the pricing config addition is failed due to Duplicate entry")
@@ -87,9 +90,13 @@ public class PricingConfig {
         pricingConfigStep.edit_a_pricing_config(whatEdit,biller_product_code,pricing_type,biller_fee,collection_fee,incl_ppn);
     }
 
-    @Then("the pricing config for successfully edited")
-    public void the_pricing_config_for_successfully_edited() {
-
+    @Then("the pricing config for ([^\"]*), ([^\"]*) ([^\"]*) edited")
+    public void the_pricing_config_for_successfully_edited(String biller, String product, String finalState) throws InterruptedException {
+        Thread.sleep(2000);
+        pricingConfigStep.the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(biller, product, finalState);
+        Thread.sleep(3000);
+        pricingConfigStep.user_filter("biller and product","Dummy Biller&TRi 10.0");
+        Thread.sleep(5000);
     }
 
     @When("user delete a pricing config")
@@ -98,9 +105,13 @@ public class PricingConfig {
         pricingConfigStep.delete_a_pricing_config();
     }
 
-    @Then("the pricing config successfully deleted")
-    public void the_pricing_config_successfully_deleted() {
-
+    @Then("the pricing config for ([^\"]*), ([^\"]*) ([^\"]*) deleted")
+    public void the_pricing_config_successfully_deleted(String biller, String product, String finalState) throws InterruptedException {
+        Thread.sleep(2000);
+        pricingConfigStep.the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(biller, product, finalState);
+        Thread.sleep(3000);
+        pricingConfigStep.user_filter("biller and product","Dummy Biller&TRi 10.0");
+        Thread.sleep(5000);
     }
 
     @When("user click Price Mapping Approval")
@@ -111,7 +122,7 @@ public class PricingConfig {
 
     @When("user click Review")
     public void user_click_Review() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         pricingConfigStep.user_click_Review();
     }
 
