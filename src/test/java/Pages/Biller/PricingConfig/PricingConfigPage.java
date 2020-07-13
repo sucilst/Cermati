@@ -93,6 +93,9 @@ public class PricingConfigPage extends PageObject {
     @FindBy(xpath = "/html/body/div[2]/div")
     WebElement DUPLICATE_ENTRY;
 
+    @FindBy(css = ".swal2-popup")
+    WebElement PREV_REQ_IN_PROGRESS;
+
     @FindBy(css = "button.btn-sm:nth-child(1)")
     WebElement EDIT_BUTTON;
 
@@ -202,6 +205,10 @@ public class PricingConfigPage extends PageObject {
 
     public void pricing_config_addition_is_failed() {
         DUPLICATE_ENTRY.isDisplayed();
+    }
+
+    public void pricing_config_deletion_is_failed() {
+//        PREV_REQ_IN_PROGRESS.isDisplayed();
     }
 
     public void click_UPDATE() {

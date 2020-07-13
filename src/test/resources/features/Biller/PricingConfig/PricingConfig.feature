@@ -104,5 +104,58 @@ Feature: Pricing Config
 
     Examples:
       |filter_type       |val                |action|biller     |product|finalState|
-      |biller and product|Dummy Biller&TRi 10|reject|Dummy Biller|TRi 10|failedly  |
+#      |biller and product|Dummy Biller&TRi 10|reject|Dummy Biller|TRi 10|failedly  |
       |biller and product|Dummy Biller&TRi 10|accept|Dummy Biller|TRi 10|successfully|
+
+  @TestCaseKey=BPA-T1473x
+  Scenario Outline: Add pricing config fail (previous request still in progress)
+    Given user has logged in before deal with pricing config
+    When user click Biller
+    And user click Price Mapping
+    And user click Add Product
+    And user fill a pricing config with <biller>, <product>, <biller_product_code>, <pricing_type>, <biller_fee>, <collection_fee>, <incl_ppn>
+    And user click save
+    And clik Ok
+    And user click Add Product
+    And user fill a pricing config with <biller>, <product>, <biller_product_code>, <pricing_type>, <biller_fee>, <collection_fee>, <incl_ppn>
+    And user click save
+    Then the pricing config addition is failed due to Duplicate entry
+
+    Examples:
+      |biller       |product       |biller_product_code|pricing_type|biller_fee|collection_fee|incl_ppn|
+      |Dummy Biller |TRi 10        |A71                |Price       |1000      |2000          |false   |
+
+
+  @TestCaseKey=BPA-T147x
+  Scenario Outline: Edit pricing config fail (previous request still in progress)
+    Given user has logged in before deal with pricing config
+    When user click Biller
+    And user click Price Mapping Approval
+    And user click Review
+    And user do accept the change
+    And user click Price Mapping
+    And user filter <filter_type> with value <val> of the pricing config
+    And user edit a pricing config at <whatEdit> with <biller_product_code>, <pricing_type>, <biller_fee>, <collection_fee>, <incl_ppn>
+    And user click save
+    And clik Ok
+    And user edit a pricing config at <whatEdit> with <biller_product_code>, <pricing_type>, <biller_fee>, <collection_fee>, <incl_ppn>
+    And user click save
+    Then the pricing config addition is failed due to Duplicate entry
+
+    Examples:
+      |filter_type       |val                     |biller_product_code|pricing_type|biller_fee|collection_fee|incl_ppn|whatEdit           |
+      |biller and product|Dummy Biller&TRi 10     |A73                |Collection  |1550      |2000          |false   |all                |
+
+  @TestCaseKey=BPA-T147y
+  Scenario Outline: Delete pricing config fail (previous request still in progress)
+    Given user has logged in before deal with pricing config
+    When user click Biller
+    And user click Price Mapping
+    And user filter <filter_type> with value <val> of the pricing config
+    And user delete a pricing config
+    And clik Ok
+    Then the pricing config deletion is failed due to previous request still in progress
+
+    Examples:
+      |filter_type       |val                |
+      |biller and product|Dummy Biller&TRi 10|

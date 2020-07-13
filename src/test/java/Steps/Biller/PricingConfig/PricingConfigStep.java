@@ -46,6 +46,10 @@ public class PricingConfigStep extends ScenarioSteps {
         pricingConfigPage.pricing_config_addition_is_failed();
     }
 
+    public void pricing_config_deletion_is_failed() {
+        pricingConfigPage.pricing_config_deletion_is_failed();
+    }
+
     public void click_UPDATE() {
         pricingConfigPage.click_UPDATE();
     }
