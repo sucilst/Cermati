@@ -8,6 +8,6 @@ import org.junit.runner.RunWith;
         features = {
 //                "src/test/resources/features/Biller/PricingConfig/PricingConfig.feature"
         }
-//        tags = {"@TestCaseKey=BPA-T1475"}
+//        tags = {"@TestCaseKey=BPA-T2242"}
 )
-public class Release05062020TestSuite {}
+public class CucumberTestSuite {}

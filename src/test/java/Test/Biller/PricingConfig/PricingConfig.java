@@ -66,15 +66,25 @@ public class PricingConfig {
         pricingConfigStep.clik_Ok();
     }
 
-    @Then("the pricing config for ([^\"]*), ([^\"]*) successfully added")
-    public void the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(String biller, String product) {
-
+    @Then("the pricing config for ([^\"]*), ([^\"]*) ([^\"]*) added")
+    public void the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(String biller, String product, String finalState) throws InterruptedException {
+        Thread.sleep(2000);
+        pricingConfigStep.the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(biller, product, finalState);
+        Thread.sleep(3000);
+        pricingConfigStep.user_filter("biller and product","Dummy Biller&TRi 10.0");
+        Thread.sleep(5000);
     }
 
     @Then("the pricing config addition is failed due to Duplicate entry")
     public void the_pricing_config_addition_is_failed_due_to_Duplicate_entry() throws InterruptedException {
         Thread.sleep(4000);
         pricingConfigStep.pricing_config_addition_is_failed();
+    }
+
+    @Then("the pricing config deletion is failed due to previous request still in progress")
+    public void the_pricing_config_deletion_is_failed_due_to_Duplicate_entry() throws InterruptedException {
+        Thread.sleep(4000);
+        pricingConfigStep.pricing_config_deletion_is_failed();
     }
 
     @When("user edit a pricing config at ([^\"]*) with ([^\"]*), ([^\"]*), ([^\"]*), ([^\"]*), ([^\"]*)")
@@ -86,9 +96,13 @@ public class PricingConfig {
         pricingConfigStep.edit_a_pricing_config(whatEdit,biller_product_code,pricing_type,biller_fee,collection_fee,incl_ppn);
     }
 
-    @Then("the pricing config for successfully edited")
-    public void the_pricing_config_for_successfully_edited() {
-
+    @Then("the pricing config for ([^\"]*), ([^\"]*) ([^\"]*) edited")
+    public void the_pricing_config_for_successfully_edited(String biller, String product, String finalState) throws InterruptedException {
+        Thread.sleep(2000);
+        pricingConfigStep.the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(biller, product, finalState);
+        Thread.sleep(3000);
+        pricingConfigStep.user_filter("biller and product","Dummy Biller&TRi 10.0");
+        Thread.sleep(5000);
     }
 
     @When("user delete a pricing config")
@@ -97,8 +111,30 @@ public class PricingConfig {
         pricingConfigStep.delete_a_pricing_config();
     }
 
-    @Then("the pricing config successfully deleted")
-    public void the_pricing_config_successfully_deleted() {
+    @Then("the pricing config for ([^\"]*), ([^\"]*) ([^\"]*) deleted")
+    public void the_pricing_config_successfully_deleted(String biller, String product, String finalState) throws InterruptedException {
+        Thread.sleep(2000);
+        pricingConfigStep.the_pricing_config_for_Dummy_Biller_Tri_Rp_successfully_added(biller, product, finalState);
+        Thread.sleep(3000);
+        pricingConfigStep.user_filter("biller and product","Dummy Biller&TRi 10.0");
+        Thread.sleep(5000);
+    }
 
+    @When("user click Price Mapping Approval")
+    public void user_click_Price_Mapping_Approval() throws InterruptedException {
+        Thread.sleep(2000);
+        pricingConfigStep.click_Price_Mapping_Approval();
+    }
+
+    @When("user click Review")
+    public void user_click_Review() throws InterruptedException {
+        Thread.sleep(4000);
+        pricingConfigStep.user_click_Review();
+    }
+
+    @When("user do ([^\"]*) the change")
+    public void user_do_the_change(String action) throws InterruptedException {
+        Thread.sleep(2000);
+        pricingConfigStep.user_do_the_change(action);
     }
 }
