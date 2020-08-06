@@ -88,7 +88,7 @@
                     </includes>
                     <argLine>-Xmx512m</argLine>
                     <parallel>classes</parallel>
-                    <threadCount>2</threadCount>
+                    <threadCount>1</threadCount>
                 </configuration>
                 <executions>
                     <execution>
@@ -137,32 +137,32 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <plugin>
-                <groupId>com.github.temyers</groupId>
-                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-                <version>4.2.0</version>
-                <executions>
-                    <execution>
-                        <id>generateRunners</id>
-                        <phase>generate-test-sources</phase>
-                        <goals>
-                            <goal>generateRunners</goal>
-                        </goals>
-                        <configuration>
-                            <!-- Mandatory -->
-                            <!-- List of package names to scan for glue code. -->
-                            <glue>
-                                <package>Test</package>
-                            </glue>
-                            <tags>
-                                <tag>~@sequence</tag>
-                            </tags>
-                            <parallelScheme>FEATURE</parallelScheme>
-                            <customVmTemplate>src/test/resources/cucumber-serenity-runner.vm</customVmTemplate>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>com.github.temyers</groupId>-->
+<!--                <artifactId>cucumber-jvm-parallel-plugin</artifactId>-->
+<!--                <version>4.2.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>generateRunners</id>-->
+<!--                        <phase>generate-test-sources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>generateRunners</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            &lt;!&ndash; Mandatory &ndash;&gt;-->
+<!--                            &lt;!&ndash; List of package names to scan for glue code. &ndash;&gt;-->
+<!--                            <glue>-->
+<!--                                <package>Test</package>-->
+<!--                            </glue>-->
+<!--                            <tags>-->
+<!--                                <tag>~@sequence</tag>-->
+<!--                            </tags>-->
+<!--                            <parallelScheme>FEATURE</parallelScheme>-->
+<!--                            <customVmTemplate>src/test/resources/cucumber-serenity-runner.vm</customVmTemplate>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 </project>

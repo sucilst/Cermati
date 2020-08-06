@@ -1,0 +1,6 @@
+is_delete,package_id,product_id,price,biller_id,partner_type,is_active
+,3,2,5500,8,SW,true
+,3,14,55850,15,,false
+,5,12,10500,25,NP,false
+,5,13,30500,,SP,true
+,24,45,50500,43,SP,false
