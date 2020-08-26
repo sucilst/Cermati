@@ -10,10 +10,6 @@ public class SummaryPackageApprovalStep extends ScenarioSteps {
         summaryPackageApprovalPage.click_Bulk_Update_Product_Package();
     }
 
-    public void enter_the_CSV_file() {
-        summaryPackageApprovalPage.enter_the_CSV_file();
-    }
-
     public void click_OK() {
         summaryPackageApprovalPage.click_OK();
     }

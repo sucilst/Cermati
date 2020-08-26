@@ -7,10 +7,8 @@ Feature: SummaryPackageApproval
     Given User open sentinel login page
     When User input setio as username and input password
 
-  @TestCaseKey=BPA-mmm
+  @TestCaseKey=BPA-T2361
   Scenario: Check summary package approval after doing bulk update using user Setio
     Given on package tab on partner package sub menu
-    When user click Bulk Update Product-Package
-    And user enter the CSV file
-    And click OK
-    Then bulk change request are waiting for approval
+    When user clicks Package Approval
+    Then user can see Change Request Summary section
