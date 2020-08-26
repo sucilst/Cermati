@@ -13,6 +13,10 @@ public interface database {
             case "febri":
                 password = "alterra123";
                 break;
+
+            case "setio":
+                password = "setio";
+                break;
             default:
                 System.out.println("Username invalid");
 
