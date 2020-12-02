@@ -147,6 +147,10 @@ public class BillerListPage extends PageObject {
     }
 
     public void checkData(String action){
+        try {
+            Thread.sleep(3000);
+        } catch (Exception e) {
+        }
         switch (action){
             case "was":
                 LAST_PAGE_DATA.click();
