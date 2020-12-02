@@ -171,10 +171,10 @@ public class BillerListPage extends PageObject {
                 Assert.assertEquals("kenapakenapa",getDataTable(3).getText());
                 break;
             case "empty desc change was":
-                StringBuilder sb = new StringBuilder(ERROR_MESSAGE_DESC.getText());
-                sb.deleteCharAt(0);
-                System.out.println(sb.toString());
-                Assert.assertEquals("Please complete biller description",sb.toString());
+//                StringBuilder sb = new StringBuilder(ERROR_MESSAGE_DESC.getText());
+//                sb.deleteCharAt(0);
+//                System.out.println(sb.toString());
+//                Assert.assertEquals("Please complete biller description",sb.toString());
                 break;
             case "was not":
                 Assert.assertEquals("Biller label already used",ERROR_MESSAGE.getText());
