@@ -1,8 +1,7 @@
 package Utils;
 
 public interface database {
-
-     static String getPassword(String username) {
+ static String getPassword(String username) {
         String password = "";
 
         switch (username) {

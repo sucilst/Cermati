@@ -14,7 +14,15 @@ public class ProductTypeStep extends ScenarioSteps {
         productTypePage.OnProductTypeSubMenu();
     }
 
-    public void GetCorrectHeader(String header){
-        productTypePage.GetCorrectHeader(header);
+    public void clickEdit()throws InterruptedException{
+        productTypePage.clickEditButton();
+    }
+
+    public void changeName(String name)throws InterruptedException{
+        productTypePage.changeName(name);
+    }
+
+    public void GetCorrectHeader() throws InterruptedException {
+        productTypePage.GetCorrectHeader();
     }
 }

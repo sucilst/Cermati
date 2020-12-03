@@ -1,0 +1,5 @@
+package_id,product_id,price,biller_id,partner_type,is_active
+3,2,5000,8,SW,true
+3,14,55750,15,,false
+5,12,10000,25,NP,false
+5,13,30000,,SP,true

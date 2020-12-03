@@ -19,8 +19,13 @@ public class Login {
         loginStep.InputUsernameAndPassword(username);
     }
 
-    @Then("User can see sentinel dashboard and logged in as ([^\"]*)")
-    public void thenUserCanSeeSentinelDashboardAndLoggedInAs(String username) throws InterruptedException{
-        loginStep.CanSeeSentinelDashboardAndLoggedInAs(username);
+    @Then("User can see sentinel dashboard")
+    public void thenUserCanSeeSentinelDashboardAndLoggedInAs() throws InterruptedException{
+        loginStep.CanSeeSentinelDashboardAndLoggedInAs();
+    }
+
+    @Then("User can see login form")
+    public void thenUserCanSeeLoginForm() throws InterruptedException{
+        loginStep.CanSeeLoginForm();
     }
 }

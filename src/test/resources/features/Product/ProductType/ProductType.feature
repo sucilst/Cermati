@@ -1,14 +1,23 @@
+@Product
 Feature: Product Type
 As Ops
 I want to have rename Poduct type id to Product Type ID
 So that header name looks better
 
-  Background: Login
+  Background: Login Success (As Admin)
     Given User open sentinel login page
-    When User input febri as username and input password
+    When User input kraken as username and input password
+    Then User can see sentinel dashboard
 
-  @TestCaseKey=BPAS-T356
-  Scenario: correct header name of "product type" not "poduct type" anymore
+  @TestCaseKey=BPAS-T3030
+  Scenario Outline: Update Product Type Name Success
     Given on product menu
     When user click product type sub menu
-    Then user get correct header, that is Product Type ID
+    And Click Edit on data that want to update and change name to <name>
+    Then Data already updated
+    Examples:
+    |name                               |
+    |ayokayok                           |
+    |12345678                           |
+    |12345678hahahahha                  |
+    |12345678hahahahha12345678hahahahha |

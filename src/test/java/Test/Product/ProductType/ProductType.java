@@ -21,9 +21,15 @@ public class ProductType {
         productTypeStep.OnProductTypeSubMenu();
     }
 
-    @Then("user get correct header, that is ([^\"]*)")
-    public void thenUserGetCorrectHeader(String header)throws InterruptedException{
+    @When("Click Edit on data that want to update and change name to ([^\"]*)")
+    public void whenUserClickEdit(String name)throws InterruptedException{
+        productTypeStep.clickEdit();
+        productTypeStep.changeName(name);
+    }
+
+    @Then("Data already updated")
+    public void thenUserGetCorrectHeader()throws InterruptedException{
         Thread.sleep(4000);
-        productTypeStep.GetCorrectHeader(header);
+        productTypeStep.GetCorrectHeader();
     }
 }
