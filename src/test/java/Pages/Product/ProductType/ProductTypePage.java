@@ -35,7 +35,7 @@ public class ProductTypePage extends PageObject {
     @FindBy(xpath = "//button[contains(text(),'Ok')]")
     WebElement OK_BUTTON;
 
-    @FindBy(id = "__BVID__326")
+    @FindBy(id = "__BVID__306")
     WebElement NAME_UPDATE;
 
     public WebElement getDataTable(int index){

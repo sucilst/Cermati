@@ -1,4 +1,6 @@
 @Product
+@sequence
+  @regression
 Feature: Product Type
 As Ops
 I want to have rename Poduct type id to Product Type ID
