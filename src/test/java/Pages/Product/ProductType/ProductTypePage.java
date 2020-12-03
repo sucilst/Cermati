@@ -72,12 +72,13 @@ public class ProductTypePage extends PageObject {
         OK_BUTTON.click();
     }
 
-    public void GetCorrectHeader(){
+    public void GetCorrectHeader() throws InterruptedException {
         Assert.assertEquals(names,getDataTable(2).getText());
         getDataTable(3).findElements(By.tagName("button")).get(0).click();
         NAME_UPDATE.clear();
         UPDATE_BUTTON.click();
         OK_BUTTON.click();
+        Thread.sleep(4000);
         Assert.assertEquals("",getDataTable(2).getText());
     }
 }

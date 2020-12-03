@@ -22,7 +22,7 @@ public class ProductTypeStep extends ScenarioSteps {
         productTypePage.changeName(name);
     }
 
-    public void GetCorrectHeader(){
+    public void GetCorrectHeader() throws InterruptedException {
         productTypePage.GetCorrectHeader();
     }
 }

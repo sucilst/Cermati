@@ -16,5 +16,8 @@ So that header name looks better
     And Click Edit on data that want to update and change name to <name>
     Then Data already updated
     Examples:
-    |name     |
-    |ayokayok |
+    |name                               |
+    |ayokayok                           |
+    |12345678                           |
+    |12345678hahahahha                  |
+    |12345678hahahahha12345678hahahahha |
